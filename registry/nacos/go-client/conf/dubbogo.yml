@@ -2,14 +2,18 @@ dubbo:
   registries:
     nacosWithCustomGroup:
       protocol: nacos
-      address: 127.0.0.1:8848
+      address: yuluo-15:8848
       group: myGroup # default is DEFAULT_GROUP
-#      namespace: 9fb00abb-278d-42fc-96bf-e0151601e4a1 # default is public
+      namespace: 9fb00abb-278d-42fc-96bf-e0151601e4a1 # default is public
+      username: nacos
+      password: nacos
+
   consumer:
     references:
       UserProvider:
         protocol: dubbo
         interface: org.apache.dubbo.UserProvider.Test
+        cluster: test-dubbo
       UserProviderWithCustomGroupAndVersion:
         protocol: dubbo
         interface: org.apache.dubbo.UserProvider.Test2

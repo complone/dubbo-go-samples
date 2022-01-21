@@ -37,7 +37,7 @@ type GreeterProvider struct {
 
 func (s *GreeterProvider) SayHello(ctx context.Context, in *api.HelloRequest) (*api.User, error) {
 	logger.Infof("Dubbo3 GreeterProvider get user name = %s\n", in.Name)
-	return &api.User{Name: "Hello " + in.Name, Id: "12345", Age: 21}, nil
+	return &api.User{Name: "Hello " + in.Name, Id: "12344", Age: 21}, nil
 }
 
 func (s *GreeterProvider) SayHelloStream(svr api.Greeter_SayHelloStreamServer) error {

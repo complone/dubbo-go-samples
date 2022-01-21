@@ -78,6 +78,7 @@ func NewGreeterClient(cc *triple.TripleConn) GreeterClient {
 	return &greeterClient{cc}
 }
 
+//客户端的接口调用
 func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc_go.CallOption) (*User, common.ErrorWithAttachment) {
 	out := new(User)
 	interfaceKey := ctx.Value(constant.InterfaceKey).(string)
@@ -127,6 +128,7 @@ type GreeterServer interface {
 	mustEmbedUnimplementedGreeterServer()
 }
 
+// 服务端的接口调用
 // UnimplementedGreeterServer must be embedded to have forward compatible implementations.
 type UnimplementedGreeterServer struct {
 	proxyImpl protocol.Invoker

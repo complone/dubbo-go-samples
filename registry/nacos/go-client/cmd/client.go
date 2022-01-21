@@ -56,7 +56,9 @@ func main() {
 	config.SetConsumerService(userProvider)
 	config.SetConsumerService(userProviderWithCustomRegistryGroupAndVersion)
 	hessian.RegisterPOJO(&User{})
-	err := config.Load()
+
+	path := "../conf/dubbogo.yml"
+	err := config.Load(config.WithPath(path))
 	if err != nil {
 		panic(err)
 	}

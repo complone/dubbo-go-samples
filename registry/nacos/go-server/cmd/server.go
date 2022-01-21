@@ -78,7 +78,9 @@ func (u *UserProviderWithCustomGroupAndVersion) GetUser(ctx context.Context, req
 
 // need to setup environment variable "CONF_PROVIDER_FILE_PATH" to "conf/server.yml" before run
 func main() {
-	if err := config.Load(); err != nil {
+
+	path := "../conf/dubbogo.yml"
+	if err := config.Load(config.WithPath(path)); err != nil {
 		panic(err)
 	}
 

@@ -1,11 +1,20 @@
 dubbo:
+  application: # 应用信息，服务启动后会将相关信息注册到注册中心，可被客户端从 url 中识别
+    name: GreetProvider # application=myApp; name=myApp
+    module: opensource # module=opensource
+    organization: dubbo # organization=dubbo
+    owner: laurence # owner=laurence
+    version: myversion # app.version=myversion
+    environment: pro # environment=pro
   registries:
     demoZK:
       protocol: zookeeper
       timeout: 3s
-      address: 127.0.0.1:2181
+      address: node1:2181
   consumer:
     references:
       GreeterClientImpl:
         protocol: tri
+        group: test
+        version: 1.0.0
         interface: com.apache.dubbo.sample.basic.IGreeter # must be compatible with grpc or dubbo-java
